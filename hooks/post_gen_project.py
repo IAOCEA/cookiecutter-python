@@ -22,3 +22,6 @@ if __name__ == "__main__":
 
     subprocess.run(["git", "config", "user.name", "{{ cookiecutter.full_name }}"])
     subprocess.run(["git", "config", "user.email", "{{ cookiecutter.email }}"])
+
+    subprocess.run(["git", "add", "-A"])
+    subprocess.run(["git", "commit", "-m", "create project from cookiecutter template"])
