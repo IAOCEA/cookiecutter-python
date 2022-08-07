@@ -1,3 +1,20 @@
+[project]
+name = "{{ cookiecutter.repo_name }}"
+requires-python = ">= 3.10"
+license = {text = "{{ cookiecutter.license }}"}
+dependencies = []
+dynamic = ["version"]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["{{ cookiecutter.project_slug }}"]
+
+[tool.setuptools_scm]
+fallback_version = "999"
+
 [tool.isort]
 profile = "black"
 skip_gitignore = true

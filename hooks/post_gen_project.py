@@ -6,6 +6,7 @@ project_directory = pathlib.Path.cwd().resolve().absolute()
 
 if __name__ == "__main__":
     # run git init
+    # submit everything into a git repository
     result = subprocess.run(
         ["git", "init", "--initial-branch={{ cookiecutter.main_branch }}"]
     )
