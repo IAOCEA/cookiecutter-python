@@ -11,6 +11,7 @@ repos:
       - id: check-docstring-first
       - id: check-json
       - id: check-yaml
+      - id: check-toml
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
