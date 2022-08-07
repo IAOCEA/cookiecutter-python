@@ -3,9 +3,29 @@ import subprocess
 
 project_directory = pathlib.Path.cwd().resolve().absolute()
 
+package_manager_exts = {
+    "conda": "yaml",
+    "pip": "txt",
+}
 
 if __name__ == "__main__":
-    # run git init
+    # remove unused package manager files
+    ci_root = project_directory.joinpath("ci/requirements")
+    package_manager = "{{ cookiecutter.package_manager }}"
+    to_delete = [
+        ext
+        for ext in package_manager_exts.values()
+        if ext != package_manager_exts[package_manager]
+    ]
+
+    glob = (
+        "*.{" + ",".join(to_delete) + "}"
+        if len(to_delete) > 1
+        else f"*.{''.join(to_delete)}"
+    )
+    for path in ci_root.glob(glob):
+        path.unlink()
+
     # submit everything into a git repository
     result = subprocess.run(
         ["git", "init", "--initial-branch={{ cookiecutter.main_branch }}"]

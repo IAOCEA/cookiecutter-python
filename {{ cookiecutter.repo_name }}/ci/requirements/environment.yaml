@@ -1,0 +1,9 @@
+name: "{{ cookiecutter.repo_name }}-tests"
+channels:
+  - conda-forge
+dependencies:
+  - "python={{ cookiecutter.python_version }}"
+  - "ipython"
+  - "pre-commit"
+  - "pytest"
+  - "pytest-reportlog"
