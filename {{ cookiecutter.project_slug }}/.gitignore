@@ -4,7 +4,7 @@
 
 # python bytecode
 *.py[co]
-__pycache__
+__pycache__/
 
 # install artifacts
 /build
@@ -15,3 +15,7 @@ __pycache__
 .ipynb_checkpoints/
 .hypothesis/
 .pytest_cache
+.coverage
+.coverage.*
+.cache
+/docs/_build/
