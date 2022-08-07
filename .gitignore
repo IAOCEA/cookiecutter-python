@@ -1,0 +1,7 @@
+# editor files
+*~
+\#*\#
+
+# python bytecode
+*.py[co]
+__pycache__
