@@ -16,6 +16,17 @@ licenses = {
     "Apache-2.0": licenses_root / "Apache",
 }
 
+
+def clean_file(path):
+    import yaml
+
+    content = path.read_text()
+    parsed = yaml.safe_load(content)
+    dumped = yaml.safe_dump(parsed, sort_keys=False)
+
+    path.write_text(dumped)
+
+
 if __name__ == "__main__":
     # remove unused package manager files
     ci_root = project_directory.joinpath("ci/requirements")
@@ -33,6 +44,11 @@ if __name__ == "__main__":
     )
     for path in ci_root.glob(glob):
         path.unlink()
+
+    if package_manager == "conda":
+        # clean up the yaml files
+        for path in ci_root.glob(f"*.{package_manager_exts[package_manager]}"):
+            clean_file(path)
 
     # copy the selected license and remove the remaining ones
     selected_license = "{{ cookiecutter.license }}"
