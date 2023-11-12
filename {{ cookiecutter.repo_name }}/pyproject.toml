@@ -13,7 +13,7 @@ build-backend = "setuptools.build_meta"
 packages = ["{{ cookiecutter.project_slug }}"]
 
 [tool.setuptools_scm]
-fallback_version = "999"
+fallback_version = "9999"
 
 [tool.isort]
 profile = "black"
