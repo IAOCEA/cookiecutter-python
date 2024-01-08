@@ -1,5 +1,4 @@
 import pathlib
-import shutil
 import subprocess
 
 project_directory = pathlib.Path.cwd().resolve().absolute()
@@ -8,12 +7,6 @@ licenses_root = project_directory / "licenses"
 package_manager_exts = {
     "conda": "yaml",
     "pip": "txt",
-}
-
-licenses = {
-    "MIT": licenses_root / "MIT",
-    "BSD-3-Clause": licenses_root / "BSD",
-    "Apache-2.0": licenses_root / "Apache",
 }
 
 
@@ -49,13 +42,6 @@ if __name__ == "__main__":
         # clean up the yaml files
         for path in ci_root.glob(f"*.{package_manager_exts[package_manager]}"):
             clean_file(path)
-
-    # copy the selected license and remove the remaining ones
-    selected_license = "{{ cookiecutter.license }}"
-    if selected_license != "Not open source":
-        license_path = project_directory / "LICENSE"
-        licenses.get(selected_license).rename(license_path)
-    shutil.rmtree(licenses_root)
 
     # submit everything into a git repository
     result = subprocess.run(
