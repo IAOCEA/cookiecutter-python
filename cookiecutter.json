@@ -1,7 +1,7 @@
 {
-    "full_name": "Justus Magin",
-    "email": "keewis@posteo.de",
-    "github_username": "keewis",
+    "full_name": "Prename Surname",
+    "email": "username@example.com",
+    "github_username": "username",
     "project_name": "New templated project",
     "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
