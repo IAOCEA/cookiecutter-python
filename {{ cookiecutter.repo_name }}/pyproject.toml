@@ -1,6 +1,6 @@
 [project]
 name = "{{ cookiecutter.repo_name }}"
-requires-python = ">= 3.10"
+requires-python = ">= {{ cookiecutter.python_version }}"
 license = {text = "{{ cookiecutter.license }}"}
 dependencies = []
 dynamic = ["version"]
@@ -15,9 +15,46 @@ packages = ["{{ cookiecutter.project_slug }}"]
 [tool.setuptools_scm]
 fallback_version = "9999"
 
-[tool.isort]
-profile = "black"
-skip_gitignore = true
-float_to_top = true
-default_section = "THIRDPARTY"
-known_first_party = "{{ cookiecutter.project_slug }}"
+[tool.ruff]
+builtins = ["ellipsis"]
+extend-safe-fixes = [
+    "TID252",  # absolute imports
+]
+exclude = [
+    ".git",
+    ".eggs",
+    "build",
+    "dist",
+    "__pycache__",
+    "docs",
+]
+target-version = "py{{ cookiecutter.python_version | replace('.', '') }}"
+extend-include = ["*.ipynb"]
+# E402: module level import not at top of file
+# E501: line too long - let black worry about that
+# E731: do not assign a lambda expression, use a def
+ignore = [
+    "E402",
+    "E501",
+    "E731",
+]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    # isort
+    "I",
+    # Pyupgrade
+    "UP",
+    # tidy imports
+    "TID",
+]
+line-length = 100
+
+[tool.ruff.lint]
+fixable = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["{{ cookiecutter.project_slug }}"]
+known-third-party = []
