@@ -17,9 +17,6 @@ fallback_version = "9999"
 
 [tool.ruff]
 builtins = ["ellipsis"]
-extend-safe-fixes = [
-    "TID252",  # absolute imports
-]
 exclude = [
     ".git",
     ".eggs",
@@ -29,7 +26,11 @@ exclude = [
     "docs",
 ]
 target-version = "py{{ cookiecutter.python_version | replace('.', '') }}"
+
 extend-include = ["*.ipynb"]
+line-length = 100
+
+[tool.ruff.lint]
 # E402: module level import not at top of file
 # E501: line too long - let black worry about that
 # E731: do not assign a lambda expression, use a def
@@ -50,10 +51,11 @@ select = [
     # tidy imports
     "TID",
 ]
-line-length = 100
-
-[tool.ruff.lint]
 fixable = ["I"]
+extend-safe-fixes = [
+    "TID252",  # absolute imports
+]
+
 
 [tool.ruff.lint.isort]
 known-first-party = ["{{ cookiecutter.project_slug }}"]
