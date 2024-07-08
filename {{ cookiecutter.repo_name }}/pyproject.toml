@@ -60,3 +60,6 @@ extend-safe-fixes = [
 [tool.ruff.lint.isort]
 known-first-party = ["{{ cookiecutter.project_slug }}"]
 known-third-party = []
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
