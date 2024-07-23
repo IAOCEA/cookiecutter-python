@@ -1,14 +1,14 @@
 {
-    "full_name": "Prename Surname",
-    "email": "username@example.com",
-    "github_username": "username",
-    "project_name": "New templated project",
-    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
-    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "github_repository": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}",
-    "license": ["MIT", "BSD-3-Clause", "Apache-2.0", "Not open source"],
-    "package_manager": ["conda", "pip"],
-    "python_version": "3.10",
-    "sphinx_theme": "sphinx_rtd_theme",
-    "main_branch": "main"
+  "full_name": "Prename Surname",
+  "email": "username@example.com",
+  "github_username": "username",
+  "project_name": "New templated project",
+  "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "github_repository": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}",
+  "license": ["MIT", "BSD-3-Clause", "Apache-2.0", "Not open source"],
+  "package_manager": ["conda", "pip"],
+  "python_version": "3.10",
+  "sphinx_theme": "sphinx_rtd_theme",
+  "main_branch": "main"
 }
