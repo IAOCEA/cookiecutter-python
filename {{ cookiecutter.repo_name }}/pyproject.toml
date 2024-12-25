@@ -1,7 +1,7 @@
 [project]
 name = "{{ cookiecutter.repo_name }}"
 requires-python = ">= {{ cookiecutter.python_version }}"
-license = {text = "{{ cookiecutter.license }}"}
+license = { text = "{{ cookiecutter.license }}" }
 dependencies = []
 dynamic = ["version"]
 
@@ -18,12 +18,12 @@ fallback_version = "9999"
 [tool.ruff]
 builtins = ["ellipsis"]
 exclude = [
-    ".git",
-    ".eggs",
-    "build",
-    "dist",
-    "__pycache__",
-    "docs",
+  ".git",
+  ".eggs",
+  "build",
+  "dist",
+  "__pycache__",
+  "docs",
 ]
 target-version = "py{{ cookiecutter.python_version | replace('.', '') }}"
 
@@ -32,25 +32,20 @@ line-length = 100
 
 [tool.ruff.lint]
 select = [
-    # Pyflakes
-    "F",
-    # Pycodestyle
-    "E",
-    # isort
-    "I",
-    # Pyupgrade
-    "UP",
-    # tidy imports
-    "TID",
+  "F",   # Pyflakes
+  "E",   # Pycodestyle
+  "I",   # isort
+  "UP",  # Pyupgrade
+  "TID", # tidy imports
 ]
 ignore = [
-    "E402", # E402: module level import not at top of file
-    "E501", # E501: line too long - let black worry about that
-    "E731", # E731: do not assign a lambda expression, use a def
+  "E402", # E402: module level import not at top of file
+  "E501", # E501: line too long - let black worry about that
+  "E731", # E731: do not assign a lambda expression, use a def
 ]
 fixable = ["I"]
 extend-safe-fixes = [
-    "TID252",  # absolute imports
+  "TID252", # absolute imports
 ]
 
 
