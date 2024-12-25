@@ -12,10 +12,11 @@ repos:
       - id: check-json
       - id: check-yaml
       - id: check-toml
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
     hooks:
-      - id: isort
+      - id: ruff
+        args: ["--fix", "--show-fixes"]
   - repo: https://github.com/psf/black
     rev: 24.4.2
     hooks:
@@ -26,10 +27,6 @@ repos:
       - id: blackdoc
         additional_dependencies: ["black==24.4.2"]
       - id: blackdoc-autoupdate-black
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.0
-    hooks:
-      - id: flake8
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.3.3
     hooks:
