@@ -4,34 +4,37 @@ ci:
 # https://pre-commit.com/
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-docstring-first
-      - id: check-json
-      - id: check-yaml
-      - id: check-toml
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
     hooks:
-      - id: isort
-  - repo: https://github.com/psf/black
-    rev: 24.4.2
+      - id: ruff
+        args: ["--fix", "--show-fixes"]
+        exclude: "\\{\\{ cookiecutter.repo_name \\}\\}"
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 24.10.0
     hooks:
-      - id: black-jupyter
+      - id: black
   - repo: https://github.com/keewis/blackdoc
     rev: v0.3.9
     hooks:
       - id: blackdoc
-        additional_dependencies: ["black==24.4.2"]
+        additional_dependencies: ["black==24.10.0"]
       - id: blackdoc-autoupdate-black
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.0
-    hooks:
-      - id: flake8
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.3.3
+    rev: v3.4.2
     hooks:
       - id: prettier
-        args: [--cache-location=.prettier_cache/cache]
+        args: ["--cache-location=.prettier_cache/cache"]
+        exclude: "\\{\\{ cookiecutter.repo_name \\}\\}"
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+        args: ["--option", "array_auto_collapse=false"]
+      - id: taplo-lint
+        args: ["--no-schema"]
