@@ -1,6 +1,6 @@
 # Cookiecutter_ template for a Python package.
 
-This is a [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a python packages. 
+This is a [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a python packages.
 
 ## How to use:
 
